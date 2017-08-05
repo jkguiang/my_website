@@ -29,6 +29,7 @@
    body { background: white !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 </style>
 
+<!-- Jumbotron -->
 <div class="jumbotron jumbotron-billboard">
     <div class="img"></div>
     <p><br /></p>
@@ -36,14 +37,27 @@
         <h1>Hello.</h1>
         <p>Welcome to my personal website, which I developed using Flask and the CDN Boostrap quickstart templates.
             Here you will find my various digital work, from graphic design to interactive programs written by me!
-            If you wish to contact me, please fill out the contact form on the Contact page.</p>
-        <p><a class="btn btn-primary btn-lg" href="/contact" role="button">Contact &raquo;</a></p>
+            If you wish to contact me, please fill out the contact form on the Contact page. To view the source code
+            for this website, please click the button below.</p>
+        <p><a class="btn btn-primary btn-lg" href="http://github.com/jkguiang/my_website" role="button">Github &raquo;</a></p>
     </div>
-</div>
+</div> <!-- End jumbotron -->
 
+<!-- Featured content -->
 <div class="container">
-    <footer>
-        <p>Last updated July 15th 2017</p>
-    </footer>
-</div>
+    <h2>Featured Content</h2>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>AutoPlotter</h3>
+            <p>
+            AutoPlotter is a web interface for a C++ program that plots
+            CMS3 data using the ROOT framework. It can be found on the
+            Programs page.
+            </p>
+            <p><a class="btn btn-primary" href="/programs" role="button">Learn More &raquo;</a></p>
+        </div>
+    </div>
+</div> <!-- End featured content -->
+
 {% endblock %}

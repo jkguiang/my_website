@@ -80,9 +80,33 @@ def the_lost_bastille():
 def graph():
     return render_template("gallery.html")
 
-@main.route('/contact')
+# Contact Form
+class ContactForm(Form):
+    name = TextField('Name: ', validators=[validators.required()])
+    email = TextField('Email: ', validators=[validators.required()])
+    text = TextField('Text: ', validators=[validators.required()])
+
+@main.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template("contact.html")
+    form = ContactForm(request.form)
+
+    if request.method == 'GET':
+        name = ""
+
+    print(form.errors)
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        text = request.form['text']
+
+        if form.validate():
+            #Fill POST form with information (Only needs to not have ERROR in it)
+            print(name, email, text) #Replace this print statement with some function that takes name, email, and text and dumps them somewhere accessible
+            flash(name)
+        else:
+            flash('Error: Please fill entire form.')
+
+    return render_template("contact.html", form=form, name=name)
 
 if __name__ == "__main__":
     main.run()
