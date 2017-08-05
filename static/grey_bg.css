@@ -1,0 +1,10 @@
+.greybg {
+    background-color: #eee;
+    padding: 0 4%;
+}
+
+.imgframe {
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+}
