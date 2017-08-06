@@ -20,60 +20,13 @@ def about():
 def programs():
     return render_template("programs.html")
 
-#THE LOST BASTILLE
-class ReusableForm(Form):
-    usr_inp = TextField('Input: ', validators=[validators.required()])
+@main.route('/programs/autoplotter')
+def autoplotter():
+    return render_template("autoplotter.html")
 
-#Global Variabes
-stage_pointer = 0
-usr_char = None
-img_name = "../static/img/partitions.jpg" #Into -> Title screen animation
-cur_descript = "Welcome to the Lost Bastille!"
-
-@main.route('/programs/the_lost_bastille', methods=['GET', 'POST'])
-def the_lost_bastille():
-    import TLB
-    import classes
-    global stage_pointer
-    global usr_char
-    global img_name
-    global cur_descript
-
-    form = ReusableForm(request.form)
-    TLB_start = False
-
-    if request.method == 'GET':
-        TLB_start = True
-        print(stage_pointer)
-        print(usr_char)
-        print(img_name)
-
-    print(form.errors)
-    if request.method == 'POST':
-        usr_inp = request.form['usr_inp']
-
-        if form.validate():
-            #Get stage image, "pointer" to next stage, and user character
-            img_name, stage_pointer, usr_char = TLB.TLB_main(stage_pointer, usr_char, usr_inp)
-
-            #Get dialogue options and stage description
-            dlg = json.load("dialoge.txt")
-            descript = dlg[stage_pointer]["descript"]
-            opt1 = dlg[stage_pointer]["opt1"]
-            opt2 = dlg[stage_pointer]["opt2"]
-            opt3 = dlg[stage_pointer]["opt3"]
-            opt4 = dlg[stage_pointer]["opt4"]
-
-            #Fill POST form with information (Only needs to not have ERROR in it)
-            flash(usr_inp)
-            print(stage_pointer)
-            print(usr_char)
-            print(img_name)
-        else:
-            flash('Error: Please enter an action.')
-
-    return render_template("the_lost_bastille.html", form=form, img_name=img_name, TLB_start=TLB_start, descript=descript, opt1=opt1, opt2=opt2, opt3=opt3, opt4=opt4)
-
+@main.route('/programs/projectmetis')
+def projectmetis():
+    return render_template("projectmetis.html")
 #END PROGRAMS ---------------------------------------------------------------------------------------------------------------------------
 
 @main.route('/gallery')
@@ -91,7 +44,7 @@ class ContactForm(Form):
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
     contact = ContactForm(request.form)
-    
+
     if request.method == 'GET':
         name = "" #Need this to fill page on loading, since we call name in render_template
 
