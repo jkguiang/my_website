@@ -35,11 +35,11 @@
     <form action="/contact" method="post" role="form">
         <div class="form-group row">
             <div class="col-sm-4">
-                <label for="name">Name</label>
+                <label for="name">Name*</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
             </div>
             <div class="col-sm-6">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">Your email will not be shared with anyone, and will be sent directly to me.</small>
             </div>
@@ -56,15 +56,23 @@
                 {% if messages %}
                     {% if "Error" not in messages[-1] %}
                         <div class="col-sm-11">
-                            <small id="success" class="form-text text-muted">Success! Thank you for visiting my website, {{ name }}. I will contact you as soon as possible.</s>
+                            <small id="success" class="form-text text-muted">Success! Thank you for visiting my website, {{ name }}. I will contact you as soon as possible.</small>
                         </div>
                     {% endif %}
 
                     {% if "Error" in messages[-1] %}
+                        <div class="col-sm-ll">
+                            <small class="form-text text-muted">*Required fields</small>
+                        </div>
+                        <p><br /></p>
                         <div class="alert alert-warning">
-                            {{ messages[1] }}
+                            <small id="failure" class="form-text text-muted">Please enter your name and a valid email address.</small>
                         </div>
                     {% endif %}
+                {% else %}
+                    <div class="col-sm-ll">
+                        <small class="form-text text-muted">*Required fields</small>
+                    </div>
                 {% endif %}
             {% endwith %}
 

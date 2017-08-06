@@ -81,32 +81,37 @@ def graph():
     return render_template("gallery.html")
 
 # Contact Form
+contacts = {} # dictionary to be exported to a database or other secure storage location for later access
+
 class ContactForm(Form):
-    name = TextField('Name: ', validators=[validators.required()])
-    email = TextField('Email: ', validators=[validators.required()])
-    text = TextField('Text: ', validators=[validators.required()])
+    name = TextField('name', validators=[validators.Required(message=u'This field is required'), validators.Length(min=2, max=25)])
+    email = TextField('email', validators=[validators.Required(message=u'This field is required'), validators.Length(min=3, max=35), validators.Email()])
+    text = TextAreaField('text')
 
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
-    form = ContactForm(request.form)
-
+    contact = ContactForm(request.form)
+    
     if request.method == 'GET':
-        name = ""
+        name = "" #Need this to fill page on loading, since we call name in render_template
 
-    print(form.errors)
+    print(contact.errors)
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
         text = request.form['text']
 
-        if form.validate():
+        print(contact.validate())
+        print(contact.errors)
+        if contact.validate():
             #Fill POST form with information (Only needs to not have ERROR in it)
-            print(name, email, text) #Replace this print statement with some function that takes name, email, and text and dumps them somewhere accessible
+            contacts[contact.name.data] = (contact.email.data, contact.text.data)
+            print(contacts) #Replace this print statement with some function that takes name, email, and text and dumps them somewhere accessible
             flash(name)
         else:
-            flash('Error: Please fill entire form.')
+            flash('Error: form incomplete', 'Error')
 
-    return render_template("contact.html", form=form, name=name)
+    return render_template("contact.html", form=contact, name=name)
 
 if __name__ == "__main__":
     main.run()
