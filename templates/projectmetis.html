@@ -39,7 +39,7 @@
             Metis is a program designed to take data from the CMS detector at the LHC and grouping particular
             samples into smaller, more usable .root files for further research. I was responsible for designing and
             implementing a module that took metadata concerning this process and produced plots that allow the user to
-            better understand how the program as a whole is performing.
+            better understand how the program is performing.
         </p>
         <p><a class="btn btn-primary btn-lg" href="http://uaf-8.t2.ucsd.edu/~jguiang/AutoPlotter/plotter.html" role="button">Launch &raquo;</a></p>
     </div>
@@ -51,31 +51,32 @@
     <hr>
     <div class="row">
         <div class="col-lg-4">
-            <h3>Web Interface</h3>
-            <p>
-            Rather than having to slowly parse through all of the graphs that
-            AutoPlotter outputs, this web interface allows for simple and quick
-            navigation.
-            </p>
-            <p><a class="btn btn-primary" href="https://github.com/jkguiang/AutoPlotter/tree/master/webinterface" role="button">Github &raquo;</a></p>
-        </div>
-        <div class="col-lg-4">
             <h3>Plotter</h3>
             <p>
-            Rather than having to write all of the code to generate each plot,
-            I consolidated the plots I need into member functions of one,
-            main "plotter" class.
+            I made each different plot-type into a function, allowing for
+            the simple addition of new plots if necessary. I decided to use Matplotlib
+            because it's easy to use and the plots we needed
+            were not particularly complicated.
             </p>
-            <p><a class="btn btn-primary" href="https://github.com/jkguiang/AutoPlotter/blob/master/ooplt.C" role="button">Github &raquo;</a></p>
+            <p><a class="btn btn-primary" href="https://github.com/jkguiang/ProjectMetis/blob/master/webinterface/Plotter.py" role="button">Github &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <h3>JSON Maker</h3>
+            <p>
+            The web interface, written by a graduate student working for the
+            Campagnari group, populates itself from a .json. This program
+            generates a .json containing plot paths and other information.
+            </p>
+            <p><a class="btn btn-primary" href="https://github.com/jkguiang/ProjectMetis/blob/master/webinterface/StatsParser.py" role="button">Github &raquo;</a></p>
         </div>
         <div class="col-lg-4">
             <h3>Log Parser</h3>
             <p>
-            The main parsing mechanism was provided for me by a member
-            of the Campagnari group. I wrote in various cuts that removed
-            much of the background noise.
+            This program parses dstat log files generated during Metis's copying
+            process. It essentially takes all of the dstat information, such as
+            CPU or memory usage, and organizes it into a dictionary.
             </p>
-            <p><a class="btn btn-primary" href="https://github.com/jkguiang/AutoPlotter/blob/master/ScanChain.C#L78-L230" role="button">Github &raquo;</a></p>
+            <p><a class="btn btn-primary" href="https://github.com/jkguiang/ProjectMetis/blob/master/webinterface/LogParser.py" role="button">Github &raquo;</a></p>
         </div>
     </div>
 </div> <!-- End featured content -->
