@@ -43,7 +43,7 @@ html {
 }
 
 /* Gallery */
-.jumbotron-billboard .posters {
+.jumbotron-billboard .designs {
     margin-bottom: 0px;
     opacity: 0.2;
     color: #fff;
@@ -63,7 +63,7 @@ html {
     margin-bottom: 0px;
     opacity: 0.2;
     color: #fff;
-    background: #000 url("img/venice.jpg") center center;
+    background: #000 url("img/plane_wing_air.jpg") center center;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -75,11 +75,28 @@ html {
   z-index:1;
 }
 
-.jumbotron-billboard .photograpy {
+.jumbotron-billboard .photography {
     margin-bottom: 0px;
     opacity: 0.2;
     color: #fff;
-    background: #000 url("img/venice.jpg") center center;
+    background: #000 url("img/cathedral.jpg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+
+
+  position:absolute;
+  top:0;left:0;
+  z-index:1;
+}
+
+/* Programs */
+.jumbotron-billboard .program {
+    margin-bottom: 0px;
+    opacity: 0.2;
+    color: #fff;
+    background: #000 url("img/mnts_from_train.jpg") center center;
     width: 100%;
     height: 100%;
     background-size: cover;

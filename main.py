@@ -37,6 +37,16 @@ def projectmetis_web():
 def graph():
     return render_template("gallery.html")
 
+@main.route('/gallery/designs')
+def designs():
+    return render_template("designs.html")
+
+@main.route('/gallery/photography')
+def photography():
+    left_col = ['cabo_rocks', 'plane_wing_air', 'cabo_cliff', 'plane_wing_ground', 'beach_clouds', 'campus_point_cliffs']
+    right_col = ['venice', 'colleseum' , 'cathedral', 'mnts_from_train', 'beach_1', 'beach_rock_shore']
+    return render_template("photography.html", left_col=left_col, right_col=right_col)
+
 # Contact Form
 contacts = {} # dictionary to be exported to a database or other secure storage location for later access
 

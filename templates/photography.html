@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!--Navbar-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Jonathan Guiang</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/programs">Programs</a></li>
+        <li class="active"><a href="/gallery">Gallery</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+
+<style type="text/css">
+   body {
+       background: white !important;  /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+   /* Move down content because we have a fixed navbar that is 50px tall */
+    }
+    .sidebar-nav-fixed {
+        width:14%;
+    }
+
+</style>
+
+<p><br /><br /><br /><br /></p>
+
+<div class="container-fluid">
+  <div class="row">
+          <!-- Side Navbar -->
+        <div class="col-md-3">
+            <div class="sidebar-nav-fixed affix">
+                <div class="well">
+                    <ul class="nav">
+                        <li class="active"><a href="/gallery">Gallery</a></li>
+                        <!-- <li><a href="#img1">Primal Rage</a></li>
+                        <li><a href="#img2">Boldly Go</a></li>
+                        <li><a href="#img3">Santa Barbara Postcard</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End side navbar -->
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-6">
+                <!-- Fill column -->
+                {% for pic in left_col %}
+                    <div class="container-fluid">
+                        <p><br /></p>
+                        <div class="text-center">
+                            <img id="img1" src="{{ url_for('static', filename='img/'+pic+'.jpg') }}" width=522 height=294>
+                            <span class="text-muted">
+                                <br /><br />
+                                July 2017
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-6">
+                <!-- Fill column -->
+                {% for pic in right_col %}
+                    <div class="container-fluid">
+                        <p><br /></p>
+                        <div class="text-center">
+                            <img id="img1" src="{{ url_for('static', filename='img/'+pic+'.jpg') }}" width=522 height=294>
+                            <span class="text-muted">
+                                <br /><br />
+                                July 2017
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    <!-- End row -->
+    </div>
+</div>
+
+
+{% endblock %}
