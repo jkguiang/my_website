@@ -9,8 +9,8 @@
         <!-- Bootstrap Quickstart CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="static/grey_bg.css" />
-        <link rel="stylesheet" href="static/main_style.css" />
+        <link rel="stylesheet" href="{{ url_for ('static', filename='grey_bg.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='main_style.css') }}" />
     </head>
 
     <body>

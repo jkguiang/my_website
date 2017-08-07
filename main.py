@@ -27,6 +27,10 @@ def autoplotter():
 @main.route('/programs/projectmetis')
 def projectmetis():
     return render_template("projectmetis.html")
+
+@main.route('/programs/projectmetis/features')
+def projectmetis_web():
+    return render_template("projectmetis_web.html")
 #END PROGRAMS ---------------------------------------------------------------------------------------------------------------------------
 
 @main.route('/gallery')
