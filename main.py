@@ -1,12 +1,26 @@
+#Flask
 from flask import Flask, render_template, flash, request, url_for
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from flask_mail import Message, Mail
+
+#Other imports
 import json
+import os
 
 #App initialization
+mail = Mail()
+
 main = Flask(__name__)
+
 main.config.from_object(__name__)
-main.config.from_pyfile('settings.py')
 main.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
+main.config["MAIL_SERVER"] = "smtp.gmail.com"
+main.config["MAIL_PORT"] = 465
+main.config["MAIL_USE_SSL"] = True
+main.config["MAIL_USERNAME"] = 'adeadfish32@gmail.com'
+main.config["MAIL_PASSWORD"] = 'Jg061997youtube'
+
+mail.init_app(main)
 
 @main.route('/')
 def home():
@@ -72,9 +86,14 @@ def contact():
         print(contact.validate())
         print(contact.errors)
         if contact.validate():
+            #Send info to my email
+            msg = Message('New contact from website', sender='adeadfish32@gmail.com', recipients=['jkguiang@gmail.com'])
+            msg.body = """
+            From: %s <%s>
+            %s
+            """ % (contact.name.data, contact.email.data, contact.text.data)
+            mail.send(msg)
             #Fill POST form with information (Only needs to not have ERROR in it)
-            contacts[contact.name.data] = (contact.email.data, contact.text.data)
-            print(contacts) #Replace this print statement with some function that takes name, email, and text and dumps them somewhere accessible
             flash(name)
         else:
             flash('Error: form incomplete', 'Error')
