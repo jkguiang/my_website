@@ -5,6 +5,7 @@ import json
 #App initialization
 main = Flask(__name__)
 main.config.from_object(__name__)
+main.config.from_pyfile('settings.py')
 main.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 @main.route('/')
@@ -81,4 +82,6 @@ def contact():
     return render_template("contact.html", form=contact, name=name)
 
 if __name__ == "__main__":
-    main.run()
+     main.debug = True
+     port = int(os.environ.get("PORT", 5000))
+     main.run(host='0.0.0.0', port=port)
