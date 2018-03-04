@@ -39,6 +39,10 @@ def programs():
 def autoplotter():
     return render_template("autoplotter.html")
 
+@main.route('/programs/autodqm')
+def autodqm():
+    return render_template("autodqm.html")
+
 @main.route('/programs/projectmetis')
 def projectmetis():
     return render_template("projectmetis.html")
@@ -58,8 +62,8 @@ def designs():
 
 @main.route('/gallery/photography')
 def photography():
-    left_col = ['cabo_rocks', 'plane_wing_air', 'cabo_cliff', 'plane_wing_ground', 'beach_clouds', 'campus_point_cliffs']
-    right_col = ['venice', 'colleseum' , 'cathedral', 'mnts_from_train', 'beach_1', 'beach_rock_shore']
+    left_col = {'cabo_rocks':'Cabo, Mexico', 'plane_wing_air':'Cabo, Mexico', 'cabo_cliff':'Cabo, Mexico', 'plane_wing_ground':'Cabo, Mexico', 'beach_clouds':'Isla Vista, CA', 'campus_point_cliffs':'Isla Vista, CA'}
+    right_col = {'venice':'Venice, Italy', 'colleseum':'Rome, Italy', 'cathedral':'St. Peter\'s Basilica, Vatican City', 'mnts_from_train':'Unknown, CA', 'beach_1':'Isla Vista, CA', 'beach_rock_shore':'Isla Vista, CA'}
     return render_template("photography.html", left_col=left_col, right_col=right_col)
 
 # Contact Form
@@ -87,7 +91,7 @@ def contact():
         print(contact.errors)
         if contact.validate():
             #Send info to my email
-            msg = Message('New contact from website', sender='adeadfish32@gmail.com', recipients=['jkguiang@gmail.com'])
+            msg = Message('New contact from website', sender='jguiangwebsite@gmail.com', recipients=['jkguiang@gmail.com'])
             msg.body = """
             From: %s <%s>
             %s
