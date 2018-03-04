@@ -32,7 +32,7 @@
         <div class="row">
             <div class="text-center">
                 <!-- Replace this with profile image -->
-                <img src={{ url_for('static', filename='img/profile_pic.png') }} width="200" height="200" class="img-thumbnail" alt="Generic placeholder thumbnail">
+                <img src={{ url_for('static', filename='img/prof_pic.png') }} width="200" height="200" class="img-thumbnail" alt="Generic placeholder thumbnail">
             </div>
         </div>
     </div>
@@ -46,12 +46,15 @@
 <div class="container">
     <p>
         I was born on June 19th, 1997 in  San Diego, California and am currently studying Physics at the University of California, Santa Barbara.
-        Outside of my scientific interests, I am an amateur graphic artist and play the piano and guitar (poorly). While working for the Campagnari
-        High Energy Physics group at UCSB, I have gained a greater interest in and appreciation for coding. I am most comfortable in Python, but
-        I have a working knowledge of C++ and am familiar with several other coding languages including JavaScript, html, and bash. My work for
-        the Campagnari group is mainly computational. We use ROOT, a C++ framework designed by and for physicists, to parse and interpret data gathered
-        by the CMS detector at the LHC. As far as my other persuits, I have done some more serious graphic design for some small companies and
-        startups. Examples of all of my work can be found on this website.
+        While working for the Campagnari High Energy Physics group at UCSB, I have gained a greater interest in and appreciation for coding. I am most
+        comfortable in Python, but I have a working knowledge of C++ and am familiar with several other programming languages including JavaScript, html,
+        and bash. My work for the Campagnari group is mainly computational. We use ROOT, a C++ framework designed by and for physicists to parse and
+        interpret data gathered by the CMS detector at the LHC. Outside of my scientific interests, I am an amateur graphic artist and play the piano
+        and guitar (poorly). I also love doing anything active; whether it's running, lifting weights, or hiking, indoors or outdoors, I love to exercise.
+        As far as my other persuits, I have done some more serious graphic design for some small companies and startups. Examples of all of my work can be
+        found on this website. <br/>
     </p>
+
+    <a href={{ url_for('static', filename='pdf/cv_1pgPDF.pdf') }}><span class="glyphicon glyphicon-file"></span> Curriculum Vitae</a>
 </div>
 {% endblock %}
