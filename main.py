@@ -6,6 +6,7 @@ from flask_mail import Message, Mail
 #Other imports
 import json
 import os
+import random
 
 #App initialization
 mail = Mail()
@@ -73,23 +74,59 @@ class ContactForm(Form):
     name = TextField('name', validators=[validators.Required(message=u'This field is required'), validators.Length(min=2, max=25)])
     email = TextField('email', validators=[validators.Required(message=u'This field is required'), validators.Length(min=3, max=35), validators.Email()])
     text = TextAreaField('text')
+    robot_check = TextAreaField('robot_check', validators=[validators.Required(message=u'This field is required')])
+
+#Global variables to hold robot check question for individual user instance
+question = None
+answer = None
+
+
+# Randomly generates robot check question
+def get_check():
+    questions = ["What is my first name?", "What is my last name?",
+                 "What is the first letter of my first name?", "What is the first letter of my last name?",
+                 "How many letters are in my first name?", "How many letters are in my last name?"]
+    answers = ["jonathan", "guiang", "j", "g", "8", "6"]
+    selection = random.randint(0,(len(answers) - 1))
+
+    return questions[selection], answers[selection]
+
 
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
+    # Declate contact object
     contact = ContactForm(request.form)
 
+    # Retrieve global values
+    global question
+    global answer
+
+    # Local variables for robot check
+    user_answer = ""
+    check_pass = False
+
     if request.method == 'GET':
-        name = "" #Need this to fill page on loading, since we call name in render_template
+        # Generate new question, answer if all NoneType
+        if (question, answer) == (None, None):
+            question, answer = get_check()
+        name = "" #Need this to load page, since we call name in render_template
 
     print(contact.errors)
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
         text = request.form['text']
+        user_answer = request.form['robot_check']
+
+        if user_answer.lower() == answer:
+            check_pass = True
 
         print(contact.validate())
         print(contact.errors)
-        if contact.validate():
+        if contact.validate() and check_pass:
+            # Reset quesion, answer, selection on successful POST
+            question, answer = get_check()
+
             #Send info to my email
             msg = Message('New contact from website', sender='jguiangwebsite@gmail.com', recipients=['jkguiang@gmail.com'])
             msg.body = """
@@ -97,12 +134,16 @@ def contact():
             %s
             """ % (contact.name.data, contact.email.data, contact.text.data)
             mail.send(msg)
+
             #Fill POST form with information (Only needs to not have ERROR in it)
             flash(name)
         else:
-            flash('Error: form incomplete', 'Error')
+            if check_pass:
+                flash('form incomplete', 'Error')
+            else:
+                flash('incorrect answer', 'Error')
 
-    return render_template("contact.html", form=contact, name=name)
+    return render_template("contact.html", form=contact, name=name, question=question, answer=answer)
 
 if __name__ == "__main__":
      main.debug = True
