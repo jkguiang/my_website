@@ -48,9 +48,15 @@
             <label for="text">Short Message</label>
             <textarea class="form-control" id="text" name="text" rows="4"></textarea>
         </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+                <label for="robot_check">{{ question }}*</label>
+                <input type="text" class="form-control" id="robot_check" name="robot_check" placeholder="Answer">
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-1">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" value="submit" class="btn btn-success">Submit</button>
             </div>
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -65,9 +71,15 @@
                             <small class="form-text text-muted">*Required fields</small>
                         </div>
                         <p><br /></p>
-                        <div class="alert alert-warning">
-                            <small id="failure" class="form-text text-muted">Please enter your name and a valid email address.</small>
-                        </div>
+                        {% if "form incomplete" in messages[-1] %}
+                            <div class="alert alert-warning">
+                                <small id="failure" class="form-text text-muted">Please enter your name and a valid email address.</small>
+                            </div>
+                        {% elif "incorrect answer" in messages[-1] %}
+                            <div class="alert alert-warning">
+                                <small id="failure" class="form-text text-muted">Incorrect answer, are you a robot?</small>
+                            </div>
+                        {% endif %}
                     {% endif %}
                 {% else %}
                     <div class="col-sm-ll">
