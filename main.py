@@ -18,8 +18,8 @@ main.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 main.config["MAIL_SERVER"] = "smtp.gmail.com"
 main.config["MAIL_PORT"] = 465
 main.config["MAIL_USE_SSL"] = True
-main.config["MAIL_USERNAME"] = 'jguiangwebsite@gmail.com'
-main.config["MAIL_PASSWORD"] = 'jonathanguiang_website'
+main.config["MAIL_USERNAME"] = ''
+main.config["MAIL_PASSWORD"] = ''
 
 mail.init_app(main)
 
