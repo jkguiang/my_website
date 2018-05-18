@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/programs">Programs</a></li>
+        <li><a href="/projects">Projects</a></li>
         <li class="active"><a href="/gallery">Gallery</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
@@ -65,7 +65,13 @@
                     <div class="container-fluid">
                         <p><br /></p>
                         <div class="text-center">
-                            <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=522 height=294>
+                            {% if pic_obj in profiles %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=294 height=522>
+                            {% elif pic_obj in squares %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=294 height=294>
+                            {% else %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=522 height=294>
+                            {% endif %}
                         </div>
                         <div class="text-center">
                             <span class="text-muted">
@@ -84,7 +90,13 @@
                     <div class="container-fluid">
                         <p><br /></p>
                         <div class="text-center">
-                            <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=522 height=294>
+                            {% if pic_obj in profiles %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=294 height=522>
+                            {% elif pic_obj in squares %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=294 height=294>
+                            {% else %}
+                                <img id="img1" src="{{ url_for('static', filename='img/'+pic_obj+'.jpg') }}" width=522 height=294>
+                            {% endif %}
                         </div>
                         <div class="text-center">
                             <span class="text-muted">

@@ -32,23 +32,23 @@ def about():
     return render_template("about.html")
 
 #START PROGRAMS ---------------------------------------------------------------------------------------------------------------------------
-@main.route('/programs')
-def programs():
-    return render_template("programs.html")
+@main.route('/projects')
+def projects():
+    return render_template("projects.html")
 
-@main.route('/programs/autoplotter')
+@main.route('/projects/autoplotter')
 def autoplotter():
     return render_template("autoplotter.html")
 
-@main.route('/programs/autodqm')
+@main.route('/projects/autodqm')
 def autodqm():
     return render_template("autodqm.html")
 
-@main.route('/programs/projectmetis')
+@main.route('/projects/projectmetis')
 def projectmetis():
     return render_template("projectmetis.html")
 
-@main.route('/programs/projectmetis/features')
+@main.route('/projects/projectmetis/features')
 def projectmetis_web():
     return render_template("projectmetis_web.html")
 #END PROGRAMS ---------------------------------------------------------------------------------------------------------------------------
@@ -63,9 +63,13 @@ def designs():
 
 @main.route('/gallery/photography')
 def photography():
-    left_col = {'cabo_rocks':'Cabo, Mexico', 'plane_wing_air':'Cabo, Mexico', 'cabo_cliff':'Cabo, Mexico', 'plane_wing_ground':'Cabo, Mexico', 'beach_clouds':'Isla Vista, CA', 'campus_point_cliffs':'Isla Vista, CA'}
-    right_col = {'venice':'Venice, Italy', 'colleseum':'Rome, Italy', 'cathedral':'St. Peter\'s Basilica, Vatican City', 'mnts_from_train':'Unknown, CA', 'beach_1':'Isla Vista, CA', 'beach_rock_shore':'Isla Vista, CA'}
-    return render_template("photography.html", left_col=left_col, right_col=right_col)
+    profiles = ['snail_on_flower2', 'oregon_waterfall']
+    squares = ['murano_toyboats', 'venice_toyboats']
+    left_col = {'cabo_rocks':'Cabo, Mexico', 'plane_wing_air':'Cabo, Mexico', 'cabo_cliff':'Cabo, Mexico', 'plane_wing_ground':'Cabo, Mexico', 'beach_clouds':'Isla Vista, CA', 'campus_point_cliffs':'Isla Vista, CA', 'campus_sunrise':'Isla Vista, CA', 'snail_on_flower2':'Santa Barbara, CA', 'torreypines_sunset': 'Del Mar, CA', 'lebanon_sunrise':'Lebanon, OR', 'delmar_sunset':'Del Mar, CA'}
+    right_col = {'venice':'Venice, Italy', 'colleseum':'Rome, Italy', 'cathedral':'St. Peter\'s Basilica, Vatican City', 'mnts_from_train':'Unknown, CA', 
+'beach_1':'Isla Vista, CA', 'beach_rock_shore':'Isla Vista, CA', 'lebanon_river':'Lebanon, OR', 
+'dp_sunrise':'Isla Vista, CA', 'oregon_waterfall':'Lebanon, OR', 'murano_toyboats':'Murano, Italy', 'venice_toyboats':'Venice, Italy'}
+    return render_template("photography.html", left_col=left_col, right_col=right_col, profiles=profiles, squares=squares)
 
 # Contact Form
 contacts = {} # dictionary to be exported to a database or other secure storage location for later access
