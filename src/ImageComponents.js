@@ -7,8 +7,6 @@ import {
   CarouselCaption
 } from 'reactstrap';
 import './App.css';
-import { last_update } from './text.js';
-import { Centertron } from './Reactrons';
 
 const images = [
     {

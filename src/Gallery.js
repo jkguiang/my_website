@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { last_update } from './text.js';
 import ImageCarousel from './ImageComponents.js';
-import { Slidetron, Centertron } from './Reactrons.js';
+import { Centertron } from './Reactrons.js';
 
 
 class Gallery extends Component {
