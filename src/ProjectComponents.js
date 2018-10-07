@@ -95,12 +95,9 @@ class ProjectBlurb extends Component {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
-        this.state = {
-            isPage: false
-        };
     }
-    handleClick(evt, value) {
-        this.props.onNav(value);
+    handleClick(evt, thisIndex) {
+        this.props.onNav(true, thisIndex);
     }
     render() {
         return (
@@ -121,9 +118,6 @@ class ProjectCard extends Component {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
-        this.state = {
-            isPage: false
-        };
     }
     handleClick(evt, thisIndex) {
         this.props.onNav(true, thisIndex);
@@ -151,9 +145,6 @@ class ProjectPage extends React.Component {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
-        this.state = {
-            isPage: false
-        };
     }
     handleClick(evt) {
         this.props.onNav(false, -1);
