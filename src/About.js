@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container } from 'reactstrap';
 import { about_text, last_update } from './text.js';
-import { Profiletron } from './styles';
+import { Profiletron } from './Reactrons.js';
 
 class About extends Component {
   render() {

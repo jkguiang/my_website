@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container } from 'reactstrap';
-import { ProjectCard, ProjectPage, project_count } from './items.js';
+import { ProjectCard, ProjectPage, project_count } from './ProjectComponents.js';
 import { last_update } from './text.js';
-import { Centertron } from './styles.js';
+import { Centertron } from './Reactrons.js';
 
 class Projects extends Component {
     constructor(props) {
@@ -15,8 +15,8 @@ class Projects extends Component {
             projIndex: -1
         };
     }
-    handleNav(value) {
-        this.setState({isPage: true, projIndex: value});
+    handleNav(togglePage, newIndex) {
+        this.setState({isPage: togglePage, projIndex: newIndex});
     }
     render() {
         var bodyStyle = {
@@ -52,7 +52,7 @@ class Projects extends Component {
         }
         else {
             return(
-                <ProjectPage index={this.state.projIndex} />
+                <ProjectPage onNav={this.handleNav} index={this.state.projIndex} />
             );
         }
 

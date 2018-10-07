@@ -8,7 +8,8 @@ import {
   faImages,
   faUserAstronaut,
   faHome,
-  faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+  faPaperPlane,
+  faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Collapse,
@@ -32,7 +33,8 @@ library.add(
   faImages,
   faUserAstronaut,
   faHome,
-  faPaperPlane  );
+  faPaperPlane,
+  faCheckCircle  );
 
 const contentMap = {
     "home": <Home />,

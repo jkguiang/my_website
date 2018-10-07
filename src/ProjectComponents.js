@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle, Button } from 'reactstrap
 import './App.css';
 import { Container } from 'reactstrap';
 import { last_update } from './text.js';
-import { Imagetron } from './styles';
+import { Imagetron } from './Reactrons';
 
 const projects = [
     {   "name":"AutoPlotter",
@@ -82,7 +82,7 @@ class Highlight extends Component {
             <CardBody>
               <CardTitle>{this.props.highlight.name}</CardTitle>
               <CardText className="text-muted">{this.props.highlight.desc}</CardText>
-              <Button href={this.props.highlight.url}>Learn More &raquo;</Button>
+              <Button outline color="primary" href={this.props.highlight.url}>Learn More &raquo;</Button>
             </CardBody>
           </Card>
         );
@@ -108,7 +108,7 @@ class ProjectBlurb extends Component {
             <CardBody>
               <CardTitle>{projects[this.props.index].name}</CardTitle>
               <CardText className="text-muted">{projects[this.props.index].desc_short}</CardText>
-              <Button onClick={evt => this.handleClick(evt, this.props.index)}>Learn More &raquo;</Button>
+              <Button outline onClick={evt => this.handleClick(evt, this.props.index)}>Learn More &raquo;</Button>
             </CardBody>
           </Card>
         );
@@ -125,10 +125,9 @@ class ProjectCard extends Component {
             isPage: false
         };
     }
-    handleClick(evt, value) {
-        this.props.onNav(value);
+    handleClick(evt, thisIndex) {
+        this.props.onNav(true, thisIndex);
     }
-    //"https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
     render() {
         var cardStyle = {
             height: "100%"
@@ -139,7 +138,7 @@ class ProjectCard extends Component {
             <CardBody style={cardStyle}>
               <CardTitle>{projects[this.props.index].name}</CardTitle>
               <CardText>{projects[this.props.index].desc_short}</CardText>
-              <Button onClick={evt => this.handleClick(evt, this.props.index)}>Learn More &raquo;</Button>
+              <Button outline onClick={evt => this.handleClick(evt, this.props.index)}>Learn More &raquo;</Button>
             </CardBody>
           </Card>
         );
@@ -148,27 +147,39 @@ class ProjectCard extends Component {
 
 class ProjectPage extends React.Component {
     // Full page, long description, cover, highlights
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            isPage: false
+        };
+    }
+    handleClick(evt) {
+        this.props.onNav(false, -1);
+    }
     render() {
         var divStyle = {
+            textAlign: "right"
+        }
+        var highlightStyle = {
             paddingBottom: '25px'
         }
-        var highlights = [];
-        for (var i = 0; i < projects[this.props.index].highlights.length; i++) {
-            highlights.push(
-                <div className="col-md-4 d-flex align-items-stretch" style={divStyle}>
-                  <Highlight highlight={projects[this.props.index].highlights[i]} />
-                </div>
-            );
-        }
+        const highlights = (projects[this.props.index].highlights).map((highlight) =>
+            <div className="col-md-4 d-flex align-items-stretch" style={highlightStyle}>
+              <Highlight highlight={highlight} />
+            </div>
+        );
         return (
             <React.Fragment>
               <Imagetron title={projects[this.props.index].name} text={projects[this.props.index].desc_long} buttonText="GitHub" buttonURL={projects[this.props.index].repo} imgURL="https://lh3.googleusercontent.com/OgrIEw0mB8chOpHx-ElmrVVmNnURzFYtJf2bOr5wBzp9aj1scjjbK4xMzamaa6y27xPf4niElTrVan-0D0GaJiKoeErRxRkWOaZrDKSIPIaj-jSNXrM4q1Eln6YIJXNYzEubZQM5biqSPZiUEcUeTMmqCRVYm7ZjXmT3vDsUksYnjuyws4MpcRcPIa7PW6lbVlY4Y9TO_ElawDvbXHPLaHBOaVWdPrCz3ECeguKwu93GkYxFo_kpHz64RaK0hZp5F-iljLO9gzuAPlexcr5fURBzz08Z3l08VXDkdkFjTrA3Z5a63S01nwCHgYPrQxi5Nut50VCIF9n0kUynakQZcOo-skZGflbzCEn9G7W5o54tpY65HhoqmQA-NCRWW739y86BRQMkbAXu9Y4dNTw14XIN15WFIJ4HUNN168oObetHr_QgHde54iUQacqPwnFuiuE5b_BWFazmeDRVJvHdCNGRY7G4O3oiTZIO0KRdqmLq2ZukBzroPv7vHC5TCQ5G-D8b818RQcL4sPcvEBNxYLF28ALwFwjlQ8UhevUhFH7GpbvxnnWLqpSY_ZPmLZjkre3iGVEtesFQ2zq2SV6AgUUV7HBw-PhrmhdYW3oH7e4Io8hDk7mEcHraslbOYnHFptlbzDrHpvic2P7z2OjsHIexHiWCdkbLxxavpL__61mHyN4xYEMxHTKg=w2454-h1380-no" />
               <Container>
-                <h2>Featured Content</h2>
+                <h2>Highlights</h2>
                 <hr />
                 <div className="row">
                     {highlights}
                 </div>
+                <div onClick={evt => this.handleClick(evt)} style={divStyle}><Button>&laquo; Back</Button></div>
                 <hr />
                 {last_update}
               </Container>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container } from 'reactstrap';
-import { ProjectBlurb } from './items.js';
+import { ProjectBlurb } from './ProjectComponents.js';
 import { home_text, last_update } from './text.js';
-import { Imagetron } from './styles';
+import { Imagetron } from './Reactrons.js';
 
 class Home extends Component {
     render() {
