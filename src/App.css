@@ -1,32 +1,20 @@
-.App {
-  text-align: center;
-}
+.jumbotron-billboard .img {
+    margin-bottom: 0px;
+    opacity: 0.2;
+    color: #fff;
+    background: #000 url("https://lh3.googleusercontent.com/9owHoX7IHxFQ4YLJXaP1GX5LQUWwa61_GnPaQdPRJ8gFgkLhZjT8FQrwgv8E8003aBZuWgU1jVeNu56IBE7iir6B_n6n0PHAkOaQghj4fbWy00O_od_H7frpUJsczd_lvz7ovVdxg4k51FwYrveMJMPhzt9UvlMWK7ujUAukA6AUQAupwrx1zGi-IVYU0vZ2ZtI7kOPurenRgIoih6rvLOa__jAUX3y_GoPOdTeJdJqaFyQOra6BvHT7RkVcrBgkk3Eugx4rWj_95DQGGhGs73FKAQE3KGAKP7dVAiYHt2R71OeArOKz6IA3_VoGcJRgBgJur48f3rNgLKYviwUWlwoqVhFOGjEb7E7YkHgFx_zsoM98ICkKOSE2tAXSUWGU1Qj43KQsquzd_iIvFK_fOaT28ToVu7CQIOz6i2R5iD6e-3uzr2A6niiKe5tZk0n3--AD9HPaO645ZLEhIQEJPd1cJgDdEPIrQd2sr_X25MahQHgOcHfaELjsXJIEOW801NymyPUfLTSRy_7CYhLn_lx0GgjQlrR4RZtsGaDWYZ4-c824Mv0MmuvLOez6pBuA6hPzdxRvcsayDtcu3X6WxRJKZvSyFmRlV-VxC7IbWs0OjXddTeb76MTZuGkTgi9_A68H55n1X1Fc5l6MpucGuROOskW2GVZ2QDAKlMBB4CyZs_tNAF8PbjxB=w2560-h1246-no") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position:absolute;
+  top:0;left:0;
+  z-index:1;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.jumbotron {position:relative;padding:50px;}
+.jumbotron .container {z-index:2;
+ position:relative;
+  z-index:2;
 }
