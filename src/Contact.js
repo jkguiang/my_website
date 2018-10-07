@@ -27,8 +27,8 @@ class Contact extends Component {
         var thisValue = evt.target.value;
         if (thisID === "contactName") {
             var splitName = thisValue.split(" ");
+            var fullName = (splitName.length >= 2);
             for (var i = 0; i < splitName.length; i++) {
-                var fullName = (splitName.length >= 2);
                 var validLength = (splitName[i].length > 0);
                 var validChars = (splitName[i].indexOf("@") < 0);
                 if (!(fullName && validLength && validChars)) {
