@@ -9,7 +9,8 @@ import {
   faUserAstronaut,
   faHome,
   faPaperPlane,
-  faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+  faCheckCircle,
+  faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Collapse,
@@ -18,12 +19,17 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 import Home from './Home.js';
 import About from './About.js';
 import Gallery from './Gallery.js';
 import Projects from './Projects.js';
 import Contact from './Contact.js';
+import resume from './resume.pdf';
 
 // Load icons
 library.add(
@@ -34,7 +40,8 @@ library.add(
   faUserAstronaut,
   faHome,
   faPaperPlane,
-  faCheckCircle  );
+  faCheckCircle,
+  faFileAlt  );
 
 const contentMap = {
     "home": <Home />,
@@ -66,6 +73,9 @@ class MainNavbar extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
     render() {
+      var linkStyle = {
+          color: "#000"
+      };
       return (
         <React.Fragment>
           <Navbar color="dark" dark expand="md">
@@ -85,9 +95,23 @@ class MainNavbar extends Component {
                 <NavItem>
                   <NavLink href="/contact/" onClick={evt => this.handleClick(evt, "contact")}><FontAwesomeIcon icon="envelope" /> Contact</NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/jkguiang/my_website"><FontAwesomeIcon icon={['fab', 'github']} /> GitHub</NavLink>
-                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    More
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      <span><a style={linkStyle} href="https://www.linkedin.com/in/jonathanguiang/"><FontAwesomeIcon icon={['fab', 'linkedin']}/></a> <a style={linkStyle} href="https://www.linkedin.com/in/jonathanguiang/">Linkedin</a></span>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <span><a style={linkStyle} href="https://github.com/jkguiang"><FontAwesomeIcon icon={['fab', 'github']}/></a> <a style={linkStyle} href="https://github.com/jkguiang">Github</a></span>
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <span><a style={linkStyle} href="https://github.com/jkguiang"><FontAwesomeIcon icon="file-alt"/></a> <a style={linkStyle} href={resume}>Resumé</a></span>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </Nav>
             </Collapse>
           </Navbar>
