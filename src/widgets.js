@@ -45,7 +45,7 @@ class Greeting extends Component {
         if (newTime < 12) {
             return "Good morning.";
         }
-        else if (newTime < 5) {
+        else if (newTime >= 12 && newTime < 17) {
             return "Good afternoon.";
         }
         else {
