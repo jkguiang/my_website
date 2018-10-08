@@ -11,7 +11,7 @@ const home_text = <span>Welcome to my personal website, which I developed using 
 const about_text = <span>I am currently studying Physics at the University of California Santa Barbara. While working for the Campagnari High Energy Physics group at UCSB, I have gained a greater interest in and appreciation for coding. I am most comfortable in Python, but I have a working knowledge of C++ and Javascript. My work for the Campagnari group is mainly computational. We use ROOT, a C++ framework designed by and for physicists to parse and interpret data gathered by the CMS detector at the LHC. However, as one of my web-based projects grew in popularity, I was led to a focus in web-development alongside my continuing work in data analysis. Outside of my academic interests, I am an amateur graphic artist and play the piano and guitar (poorly). I also love doing anything active; whether it&apos;s running, lifting weights, or hiking, indoors or outdoors, I love to exercise. Examples of all of my work can be found on this website.</span>;
 
 // Last Updated
-const last_update = <p className="text-muted">Last Updated October 6<sup>th</sup>, 2018</p>;
+const last_update = <p className="text-muted">Last Updated October 8<sup>th</sup>, 2018</p>;
 
 export {
   home_text,
