@@ -56,7 +56,7 @@ class Contact extends Component {
               <Centertron title="Contact" text="Fill out your contact information with an optional short message and I'll get back to you as soon as possible."/>
               <div style={bodyStyle}>
                 <Container>
-                  <Form>
+                  <Form action="https://send.pageclip.co/96QTaLZJWfuiRdz05ZSJiITIYlKZReio" method="post">
                     <Row form>
                     <Col md={6}>
                       <FormGroup>
