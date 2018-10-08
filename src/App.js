@@ -73,9 +73,6 @@ class MainNavbar extends Component {
         this.setState({isOpen: !this.state.isOpen});
     }
     render() {
-      var linkStyle = {
-          color: "#000"
-      };
       return (
         <React.Fragment>
           <Navbar color="dark" dark expand="md">
@@ -100,15 +97,15 @@ class MainNavbar extends Component {
                     More
                   </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem>
-                      <span><a style={linkStyle} href="https://www.linkedin.com/in/jonathanguiang/"><FontAwesomeIcon icon={['fab', 'linkedin']}/></a> <a style={linkStyle} href="https://www.linkedin.com/in/jonathanguiang/">Linkedin</a></span>
+                    <DropdownItem href="https://www.linkedin.com/in/jonathanguiang/">
+                      <span><FontAwesomeIcon icon={['fab', 'linkedin']}/> Linkedin</span>
                     </DropdownItem>
-                    <DropdownItem>
-                      <span><a style={linkStyle} href="https://github.com/jkguiang"><FontAwesomeIcon icon={['fab', 'github']}/></a> <a style={linkStyle} href="https://github.com/jkguiang">Github</a></span>
+                    <DropdownItem href="https://github.com/jkguiang">
+                      <span><FontAwesomeIcon icon={['fab', 'github']}/> Github</span>
                     </DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>
-                      <span><a style={linkStyle} href="https://github.com/jkguiang"><FontAwesomeIcon icon="file-alt"/></a> <a style={linkStyle} href={resume}>Resumé</a></span>
+                    <DropdownItem href={resume}>
+                      <span><FontAwesomeIcon icon="file-alt"/> Resumé</span>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
