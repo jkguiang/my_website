@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Jumbotron, Container, Button } from 'reactstrap';
-import Clock from './widgets.js'
+import { Clock, Greeting } from './widgets.js'
 
 class Imagetron extends Component {
     render() {
@@ -14,7 +14,7 @@ class Imagetron extends Component {
             <Jumbotron className="jumbotron jumbotron-billboard">
               <div className="img" style={imgStyle}></div>
               <Container>
-                <h4 className="display-3">{this.props.title}</h4>
+                {(this.props.title) ? <h4 className="display-3">{this.props.title}</h4> : <Greeting />}
                 {(this.props.toggleClock) ? <Clock /> : null}
                 <p className="lead text-muted">{this.props.text}</p>
                 <Button href={this.props.buttonURL}>{(this.props.buttonText) ? this.props.buttonText : "See More"} &raquo;</Button>

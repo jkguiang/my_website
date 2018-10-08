@@ -23,7 +23,7 @@ const images = [
     },
     {
         src: 'https://lh3.googleusercontent.com/sL60OPpSm4H32pdUHTpyjI4AvId8fnicHmW3kuB_TvSUB84WnhDjsezUEcYsfTVI2oWkkKTU9jsEqSj4ERvdMjuCBx9GTtfhC0vsc69caKqFeitjb7e9EQiWDvguAEDVoNWuAvKWL2zBAQi7wS4BteNFhVUBAktHB_8kgScNhz8Ad0mqICGnQcUIaG5B9-kJHZ2dkA7ZJ76ldtNb4bkHe0qHBqWdxvVKAzg_2DHt8qoizv4bOdITEUv4ELRt3PeLU4QbMTRUIFEjMC3k8g_4wEKooumOpofaXSYk1VvXzWWlkDiePfjYd3LHBYXwLHM0X0ky_SzTyryC8L-aQDWg44DOf4BEojHJkpnPVrkKAbcz_R8gSWslc9Kj8dkHduiFuqZ9GRJz5rtYPpSVQVF9iMjxVxTF0PbsrfAomHZ4uESgrGNZBgTR32uexpsSlfxohNB68rL9xDgTRjg7yXxzasrBDJ6kIyzxq5oh1G8ldYTEuwNgBDclFkKMT1LXeQu6k_mANeL-sM3WWEX_KXNoLROOCGg2Y-dF6D-JhcuOapwgiYLXBb8KEDeJY1jG8PlnkHL4-uqELM7gYpfowxsy1M4uu1TabitJsyrktOZnJX_Slof8_6q4XbVC1uhtVCvdV8gz4ll_2dvnsJ1wgx2onQNr2z1TFBrHYYp9mo-Pg3VJlmEz8OTSwavX=s1380-no',
-        header: 'Murano, IT',
+        header: 'Murano, Italy',
         caption: 'July, 2015'
     },
     {

@@ -9,7 +9,8 @@ import {
   faUserAstronaut,
   faHome,
   faPaperPlane,
-  faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+  faCheckCircle,
+  faFileAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Collapse,
@@ -18,12 +19,17 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink } from 'reactstrap';
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 import Home from './Home.js';
 import About from './About.js';
 import Gallery from './Gallery.js';
 import Projects from './Projects.js';
 import Contact from './Contact.js';
+import resume from './resume.pdf';
 
 // Load icons
 library.add(
@@ -34,7 +40,8 @@ library.add(
   faUserAstronaut,
   faHome,
   faPaperPlane,
-  faCheckCircle  );
+  faCheckCircle,
+  faFileAlt  );
 
 const contentMap = {
     "home": <Home />,
@@ -85,9 +92,23 @@ class MainNavbar extends Component {
                 <NavItem>
                   <NavLink href="/contact/" onClick={evt => this.handleClick(evt, "contact")}><FontAwesomeIcon icon="envelope" /> Contact</NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/jkguiang/my_website"><FontAwesomeIcon icon={['fab', 'github']} /> GitHub</NavLink>
-                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    More
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem href="https://www.linkedin.com/in/jonathanguiang/">
+                      <span><FontAwesomeIcon icon={['fab', 'linkedin']}/> Linkedin</span>
+                    </DropdownItem>
+                    <DropdownItem href="https://github.com/jkguiang">
+                      <span><FontAwesomeIcon icon={['fab', 'github']}/> Github</span>
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem href={resume}>
+                      <span><FontAwesomeIcon icon="file-alt"/> Resumé</span>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </Nav>
             </Collapse>
           </Navbar>
