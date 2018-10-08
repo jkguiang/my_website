@@ -19,7 +19,7 @@ class Contact extends Component {
         };
     }
     handleCheck(evt) {
-        if (evt.target.id == "notRobot") {
+        if (evt.target.id === "notRobot") {
             this.setState(state => ({
               isChecked: !state.isChecked,
               isInit: false
