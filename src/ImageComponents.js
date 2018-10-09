@@ -167,7 +167,7 @@ class ImageCarousel extends Component {
             return (
                 <CarouselItem onExiting={this.onExiting} onExited={this.onExited} key={image.src}>
                   <img src={image.src} alt={image.altText} style={imageStyle}/>
-                  <CarouselCaption captionText={image.caption} style={textStyle}/>
+                  {(image.caption) ? <CarouselCaption captionText={image.caption} style={textStyle}/> : ""}
                 </CarouselItem>
             );
         });
