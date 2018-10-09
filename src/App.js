@@ -28,8 +28,11 @@ import Home from './Home.js';
 import About from './About.js';
 import Gallery from './Gallery.js';
 import Projects from './Projects.js';
+import { ProjectPage } from './ProjectComponents.js';
 import Contact from './Contact.js';
 import resume from './resume.pdf';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 // Load icons
 library.add(
@@ -43,14 +46,6 @@ library.add(
   faCheckCircle,
   faFileAlt  );
 
-const contentMap = {
-    "home": <Home />,
-    "about": <About />,
-    "gallery": <Gallery />,
-    "projects": <Projects />,
-    "contact": <Contact />
-};
-
 var appStyle = {
     backgroundColor: "#F8F9FA"
 };
@@ -59,15 +54,10 @@ class MainNavbar extends Component {
     constructor(props) {
         super(props);
 
-        this.handleClick = this.handleClick.bind(this);
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
         };
-    }
-    handleClick(evt, value) {
-        evt.preventDefault();
-        this.props.onNav(value);
     }
     toggle() {
         this.setState({isOpen: !this.state.isOpen});
@@ -75,66 +65,70 @@ class MainNavbar extends Component {
     render() {
       return (
         <React.Fragment>
-          <Navbar color="dark" dark expand="md">
-            <NavbarBrand href="/" onClick={evt => this.handleClick(evt, "home")}><FontAwesomeIcon icon="home" /> Jonathan Guiang</NavbarBrand>
-            <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
+        <Navbar color="dark" dark expand="md">
+          <LinkContainer to="/"><NavbarBrand><FontAwesomeIcon icon="home" /> Jonathan Guiang</NavbarBrand></LinkContainer>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <LinkContainer to="/about">
                 <NavItem>
-                  <NavLink href="/about/" onClick={evt => this.handleClick(evt, "about")}><FontAwesomeIcon icon="user-astronaut" /> About</NavLink>
+                  <NavLink href="/about"><FontAwesomeIcon icon="user-astronaut" /> About</NavLink>
                 </NavItem>
+              </LinkContainer>
+              <LinkContainer to="/gallery">
                 <NavItem>
-                  <NavLink href="/gallery/" onClick={evt => this.handleClick(evt, "gallery")}><FontAwesomeIcon icon="images" /> Gallery</NavLink>
+                  <NavLink href="/gallery"><FontAwesomeIcon icon="images" /> Gallery</NavLink>
                 </NavItem>
+              </LinkContainer>
+              <LinkContainer to="/projects">
                 <NavItem>
-                  <NavLink href="/projects/" onClick={evt => this.handleClick(evt, "projects")}><FontAwesomeIcon icon="code" /> Projects</NavLink>
+                  <NavLink href="/projects"><FontAwesomeIcon icon="code" /> Projects</NavLink>
                 </NavItem>
+              </LinkContainer>
+              <LinkContainer to="/contact">
                 <NavItem>
-                  <NavLink href="/contact/" onClick={evt => this.handleClick(evt, "contact")}><FontAwesomeIcon icon="envelope" /> Contact</NavLink>
+                  <NavLink href="/contact"><FontAwesomeIcon icon="envelope" /> Contact</NavLink>
                 </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    More
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem href="https://www.linkedin.com/in/jonathanguiang/">
-                      <span><FontAwesomeIcon icon={['fab', 'linkedin']}/> Linkedin</span>
-                    </DropdownItem>
-                    <DropdownItem href="https://github.com/jkguiang">
-                      <span><FontAwesomeIcon icon={['fab', 'github']}/> Github</span>
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem href={resume}>
-                      <span><FontAwesomeIcon icon="file-alt"/> Resumé</span>
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </Nav>
-            </Collapse>
-          </Navbar>
+              </LinkContainer>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  More
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem href="https://www.linkedin.com/in/jonathanguiang/">
+                    <span><FontAwesomeIcon icon={['fab', 'linkedin']}/> Linkedin</span>
+                  </DropdownItem>
+                  <DropdownItem href="https://github.com/jkguiang">
+                    <span><FontAwesomeIcon icon={['fab', 'github']}/> Github</span>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem href={resume}>
+                    <span><FontAwesomeIcon icon="file-alt"/> Resumé</span>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
         </React.Fragment>
       );
     }
 }
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.handleNav = this.handleNav.bind(this);
-        this.state = {
-            location: "home"
-        };
-    }
-    handleNav(locale) {
-        this.setState({location: locale});
-    }
     render() {
         return (
-            <div style={appStyle}>
-              <MainNavbar onNav={this.handleNav} />
-              {contentMap[this.state.location]}
-            </div>
+            <Router>
+              <div style={appStyle}>
+                <MainNavbar/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/gallery" component={Gallery} />
+                <Route exact path="/projects" component={Projects}/>
+                <Route exact path="/projects/:name" component={ProjectPage}/>
+                <Route path="/contact" component={Contact}/>
+              </div>
+            </Router>
         );
     }
 }
