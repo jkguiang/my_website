@@ -14,7 +14,16 @@
   z-index:1;
 }
 .jumbotron {position:relative;padding:50px;}
-.jumbotron .container {z-index:2;position:relative;}
+.jumbotron .container {
+    z-index:2;
+    position:relative;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 .carousel-caption {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
 }
