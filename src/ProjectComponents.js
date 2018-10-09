@@ -4,7 +4,7 @@ import './App.css';
 import { Container } from 'reactstrap';
 import { last_update } from './text.js';
 import { Imagetron } from './Reactrons';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 // import { LinkContainer } from 'react-router-bootstrap';
 
 const projects = {
