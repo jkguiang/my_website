@@ -9,8 +9,8 @@ import { Centertron } from './Reactrons.js';
 class Gallery extends Component {
     render() {
         var bodyStyle = {
-          paddingTop: '25px',
-          backgroundColor: '#F8F9FA'
+            paddingTop: '25px',
+            backgroundColor: '#F8F9FA'
         };
         return (
             <React.Fragment>

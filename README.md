@@ -1,5 +1,6 @@
 # My Website
 [![CodeFactor](https://www.codefactor.io/repository/github/jkguiang/my_website/badge/master)](https://www.codefactor.io/repository/github/jkguiang/my_website/overview/master)
+[![Build Status](https://travis-ci.org/jkguiang/my_website.svg?branch=master)](https://travis-ci.org/jkguiang/my_website)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
