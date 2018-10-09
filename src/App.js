@@ -31,7 +31,7 @@ import Projects from './Projects.js';
 import { ProjectPage } from './ProjectComponents.js';
 import Contact from './Contact.js';
 import resume from './resume.pdf';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
 // Load icons
