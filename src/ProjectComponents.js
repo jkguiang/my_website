@@ -29,6 +29,23 @@ const projects = {
             }
         ]
     },
+    "Integratable": {
+        "title":"Integratable",
+        "desc_long":"Integratable provides useful integrals on an interactive, modern platform. There are many static, PDF integral tables out there, but Integratable uses a React-based front end to make integrals easier to find and more pleasing to look at. It also utilizes the Wolfram Alpha API to make every integral on the website evaluatable as a definite integral.",
+        "desc_short":"A React-based integral table that provides interactivity using Wolfram Alpha's API.",
+        "repo":"https://github.com/jkguiang/integratable",
+        "thumb":"https://lh3.googleusercontent.com/LhlQV3xboAg8Jr8oU_p_RlEzE22SEtMAAzyFP5iUf68miySyTam1-wkig9Qi_lCy54DeA4dOoF6rfTANms6rU_LL9-dZzBC1mpTCP1nB0jQajH7GbbMERScRgbVvMCP2HIQ1V2NuKGa0q5YjCVog_NlzxzY66Jo7pHJQesV7pwH4HjgKgViAlh0S5MRqZT0oCLpIjH9EnBkwVrFlf88GjbJFLjFLvIBm6XD18AHw2-gB6xgD2S8aVQdrrO0Miefsizsjo6FwtSz-7U705611nAyVQDzj7cs8XbjRg-HEOWmwig9Bg3UWFmZRyn-o2UDK1sfdAHtNxAPgluy_r0RWLBGTMoRMEeJ7CoQS9Xtn-pmBXR2Y6dFJlDf1qkCQS_CWbOf9ddeP41IIIkqoR6gzYOos4AqCwlyFxVeCE0767GB1F3Jz-AVRBKhkby3keYhxbUl7G3lMHF-q-DxDBBo-UTtcwXvKcbM1N934eEH0pChxMYQDkQ2G9FjqGf4a0j-EoD0_pzHUD754ZCylb-l5K7e8blt44kT0FP1MiXpO2FP5CfcjUY8JGZuuEm_hBaylPjZ5jruY3Q0b6vMyjJYolNvzfSaNC-jt5Sbw5pFfNiJXtnDIJqQu9OmqmCdHUfBcPVQjCC7Szpr9DNONSZaRuhVJz4JpjwtakYfkicecH-vLhNpNgbI2vdJ7yx8VlXjHi1ZYGuyFu8rhPa3R0-btgDeIx5bqqVJEipfBkw=w2530-h1380-no",
+        "highlights":[
+            {   "title":"The Website",
+                "desc":"Integratable is currently a static website hosted by Github Pages.",
+                "url":"https://www.integratable.info/#/"
+            },
+            {   "title":"Interactivity",
+                "desc": "All integrals on Integratable are handled by this set of React components.",
+                "url":"https://github.com/jkguiang/integratable/blob/master/src/Integrals.js"
+            }
+        ]
+    },
     "AutoDQM": {
         "title":"AutoDQM",
         "desc_long":"AutoDQM is a statistical tool for Data Quality Management (DQM) at the Large Hadron Particle Collider. Before AutoDQM, DQM shifters were tasked with looking at hundreds of DQM histograms, looking for hard-to-spot issues in data collection. To expedite this process, AutoDQM runs long established statistical tests on these graphs and outputs outliers on a simple, but effective, GUI that expedites the shifters' task.",
@@ -60,6 +77,27 @@ const projects = {
             {   "title":"Generator: Python",
                 "desc": "This script more directly uses the SPE template we created for previous studies, but provides all of te same functionality.",
                 "url":"https://github.com/bjmarsh/pmt-calibration/blob/master/photon_template_generator/ptgen.py"
+            }
+        ]
+    },
+    "ChronoSCAD": {
+        "title":"ChronoSCAD",
+        "desc_long":"ChronoSCAD renders different prototype configurations of the MIP Timing Detector's Endcap Layer for use in simulating the geometric dependence of the detector. It uses OpenSCAD, a modular, C-like language for rendering 3D objects. ChronoSCAD's output is also useful for various PR purposes, such as cost analysis or pictures and animations for proposals and conceptualization aids.",
+        "desc_short":"OpenSCAD-based software used to programmatically render designs for the MIP Timing Detector. Generated models are also used to study the geometric dependence of the detector.",
+        "repo":"https://github.com/jkguiang/ChronoSCAD",
+        "thumb":"https://lh3.googleusercontent.com/wH8KE177262haauJlCqufXgtH3jk1Lk2ch0UL83_8aMQ8rs3sFsT5fGDNOMTBKMXSABpl4GOBHoIbGiBizJv0bWMXHhZq_a5KuDOp61BUj31T5n9kRGJ7K6fFmujHImVn26ODkampQve2dO3-dPZaE22kYH7r1NbtfjJApiXacIFcozw-zM0ZQdhqN5LIOZSmnLZo9fMmrGY63r075EhVSARFEwh9URCjxlictX1wd-9boX5XrfTpmi63adZCXdAFXcUukPkQ14jUKTkYUNjLinVi4If8q-zV418EyV0JHAgwd0eULA0ksJ2GBdEeXHUF6zTEI4j9uvWkJih2ZVnlXJrGYsV7-iHJonLAnO0zQT_evPLwezBL2kyK9Yi8CM8MbL-61Ihf0jD4zadfZdeAjaC5t6IAVHoF9HJiMX8FFadf8eLK9Gi8oXQymRwu5Tkcwmdfzh7O11GX3cHSh424-5z-_-04osAffnpBmqOhqtQp4FY1CqOGeiD2nJmzv-pI1YlFwVm-KZmMNgUFyBxQBNep0ryhLtnAlYiArSMYXvOjoLhzvtjtHd0GNpkb991O1TFaMaJO2zVFZulPSoVsi-LT73bPbIu7GpbMAgVq_nnaNAprfc215ES2vUXtwlZPhEemE3nZhIVD8ARJ1YionZr_hJVXQb4DJNVs1ZQeFY8QjCdxZrDyhH2vR8bcAgmZ2QTjD7EQ6SjmMC7ubhRCu1u2zHtvpU-WNxI=w1112-h787-no",
+        "highlights":[
+            {   "title":"Detector Components",
+                "desc":"OpenSCAD is modular, making it easy to render arbitrarily complex detector components as defined in this script.",
+                "url":"https://github.com/jkguiang/ChronoSCAD/blob/master/modules.scad"
+            },
+            {   "title":"Construction Logic",
+                "desc": "This script contains the logic for fitting an optimized number of sensors inside of the circular detector for maximal coverage.",
+                "url":"https://github.com/jkguiang/ChronoSCAD/blob/master/logic.scad"
+            },
+            {   "title":"Particle Trajectories",
+                "desc": "ChronoSCAD can also draw the simulated trajectories of incoming particles to fully visualize the detector performance.",
+                "url":"https://github.com/jkguiang/ChronoSCAD/blob/master/trajectories.scad"
             }
         ]
     }
