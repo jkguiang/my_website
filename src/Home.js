@@ -18,10 +18,10 @@ class Home extends Component {
                     <ProjectBlurb name="AutoDQM" />
                   </Col>
                   <Col md={4} className="d-flex align-items-stretch">
-                    <ProjectBlurb name="PhotonTemplateGenerator" />
+                    <ProjectBlurb name="Integratable" />
                   </Col>
                   <Col md={4} className="d-flex align-items-stretch">
-                    <ProjectBlurb name="AutoPlotter" />
+                    <ProjectBlurb name="ChronoSCAD" />
                   </Col>
                 </div>
                 <hr />
