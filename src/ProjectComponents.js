@@ -31,18 +31,22 @@ const projects = {
     },
     "Integratable": {
         "title":"Integratable",
-        "desc_long":"Integratable provides useful integrals on an interactive, modern platform. There are many static, PDF integral tables out there, but Integratable uses a React-based front end to make integrals easier to find and more pleasing to look at. It also utilizes the Wolfram Alpha API to make every integral on the website evaluatable as a definite integral.",
-        "desc_short":"A React-based integral table that provides interactivity using Wolfram Alpha's API.",
+        "desc_long":"Integratable provides useful integrals on an interactive, modern platform. There are many static, PDF integral tables out there, but Integratable uses a React-based front end to make integrals easier to find and more pleasing to look at. Because all of the integrals on an integral table have known solutions, their definite forms can easily by evaluated using basic mathematics.",
+        "desc_short":"A React-based, interactive integral table hosted on Github Pages.",
         "repo":"https://github.com/jkguiang/integratable",
         "thumb":"https://lh3.googleusercontent.com/LhlQV3xboAg8Jr8oU_p_RlEzE22SEtMAAzyFP5iUf68miySyTam1-wkig9Qi_lCy54DeA4dOoF6rfTANms6rU_LL9-dZzBC1mpTCP1nB0jQajH7GbbMERScRgbVvMCP2HIQ1V2NuKGa0q5YjCVog_NlzxzY66Jo7pHJQesV7pwH4HjgKgViAlh0S5MRqZT0oCLpIjH9EnBkwVrFlf88GjbJFLjFLvIBm6XD18AHw2-gB6xgD2S8aVQdrrO0Miefsizsjo6FwtSz-7U705611nAyVQDzj7cs8XbjRg-HEOWmwig9Bg3UWFmZRyn-o2UDK1sfdAHtNxAPgluy_r0RWLBGTMoRMEeJ7CoQS9Xtn-pmBXR2Y6dFJlDf1qkCQS_CWbOf9ddeP41IIIkqoR6gzYOos4AqCwlyFxVeCE0767GB1F3Jz-AVRBKhkby3keYhxbUl7G3lMHF-q-DxDBBo-UTtcwXvKcbM1N934eEH0pChxMYQDkQ2G9FjqGf4a0j-EoD0_pzHUD754ZCylb-l5K7e8blt44kT0FP1MiXpO2FP5CfcjUY8JGZuuEm_hBaylPjZ5jruY3Q0b6vMyjJYolNvzfSaNC-jt5Sbw5pFfNiJXtnDIJqQu9OmqmCdHUfBcPVQjCC7Szpr9DNONSZaRuhVJz4JpjwtakYfkicecH-vLhNpNgbI2vdJ7yx8VlXjHi1ZYGuyFu8rhPa3R0-btgDeIx5bqqVJEipfBkw=w2530-h1380-no",
         "highlights":[
             {   "title":"The Website",
-                "desc":"Integratable is currently a static website hosted by Github Pages.",
+                "desc":"Integratable is a static website hosted by Github Pages.",
                 "url":"https://www.integratable.info/#/"
             },
             {   "title":"Interactivity",
                 "desc": "All integrals on Integratable are handled by this set of React components.",
                 "url":"https://github.com/jkguiang/integratable/blob/master/src/Integrals.js"
+            },
+            {   "title":"Evaluation",
+                "desc": "This script provides the final displayed solution as well as points for the plot.",
+                "url":"https://github.com/jkguiang/integratable/blob/master/src/Evaluate.js"
             }
         ]
     },
